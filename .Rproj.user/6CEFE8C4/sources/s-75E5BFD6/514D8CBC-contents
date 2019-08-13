@@ -1,16 +1,14 @@
-
-library(dplyr)
-
+library(rvest)
+library(tidyverse)
+url="https://www.boliga.dk/solgt/alle_boliger-4000ipostnr=4000?ipostnr=4000ipostnr&so=1&p=1"
 
 # find number of pages in table
-ireland_equity_url <- "http://mandg.com/ireland/adviser/summary-of-asset-classes/equities/"
-pgs<- read_html(ireland_equity_url )%>%
-                html_nodes(".page-content-link")%>%
-                html_attr("href") %>% 
-                #html_nodes("b")%>%
+
+pgs<- ceiling(read_html(url)%>%
+                html_nodes(".d-print-none")%>%
+                html_nodes("b")%>%
                 html_text()%>%
-                str_match("fund/ (.*?) overview") %>% 
-              res[,2]%>%
+                gsub("[^\\d]+", "", ., perl=TRUE)%>%
                 as.numeric()
               /40)
 
