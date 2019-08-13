@@ -33,8 +33,12 @@ length(fund_names)
 
 # Extract the lu number from href
 
-lu <- fund_links %>% 
-  str_match("fund/ (.*?) overview")
+
+lu <-fund_links %>% 
+  str_extract("[lu]+[0-9]+")
+
+
+
 
 ## FollOw each of the links and create a data frame/tibble with "FUND NAMES", "PERFORMANCE COMPARATOR", "
 
