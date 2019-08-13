@@ -1,0 +1,12 @@
+
+
+url <-'https://www.mandg.co.uk/investor/fund-prices-performance/'
+
+emailjs <- read_html(url) %>% html_nodes('#body') %>% html_nodes('script') %>% html_text()
+emailjs
+writeClipboard(as.character(emailjs))
+library(httr)
+
+r <- GET("https://www.mandg.co.uk/investor/fund-prices-performance/")
+json <- content(r,as="parsed")
+writeClipboard(as.character(json))
