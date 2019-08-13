@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1565671221274.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "948408623",
+    "id" : "F7CE3CF1",
+    "lastKnownWriteTime" : 1565671252,
+    "last_content_update" : 1565671252121,
+    "path" : "E:/01.r_projects/05.web_scraping/03.r_scraping/web_scrap_script.R",
+    "project_path" : "web_scrap_script.R",
+    "properties" : {
+        "cursorPosition" : "1,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
