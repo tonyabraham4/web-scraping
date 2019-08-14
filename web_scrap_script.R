@@ -62,9 +62,33 @@ share_class_list <- page %>%
 
 page <- read_html("https://www.mandg.com/ireland/adviser/funds/mg-lux-asian-fund/lu1670618187/overview")
 
-# Benchmark
-benchmark <- page %>% 
-  html_node("h4") %>% 
-  html_text()
+# Extracting the text in the form of XML nodes
+
+div_left<- page %>% 
+  html_nodes(".column") %>% 
+  html_text() %>% 
+  paste(collapse = " ")
 
 
+
+#right can be ignored sinceleft is picking it already!!!
+# div_right <- page %>% 
+#   html_nodes(".column.right") %>% 
+#   html_text()
+
+div_bottom <- page %>% 
+  html_nodes(".disclaimer") %>% 
+  html_text() %>% 
+  paste(collapse = " ")
+# Combining
+fund_wording <- paste(div_left ,div_bottom, collapse = "")
+# Removing white spaces
+fund_wording <-  gsub("\\s+"," ", fund_wording )
+  
+writeClipboard(fund_wording)
+
+summary(div_left)
+str(div_left)
+class(div_left)
+View(combined_div)
+glimpse(div_left)
